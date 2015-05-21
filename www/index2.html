@@ -50,31 +50,32 @@ font-size: 35px;
 		</div>
 		
 	</div>
-<div class="row" style="padding-top: 10px;padding-bottom: 10px;">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div  class="panel-heading">
-                        <strong><span class="glyphicon glyphicon-th"></span> 
-                        DATOS FILTRO
-                    </div>
-                    <div class="panel-body">
-                        <label>Establecimiento</label>
-                <select class="form-control" id="formalocales">
-
-                </select>
-                <br/>
-                <label>Fecha</label>
-                    <input id="lafecha" class="form-control" readonly />
+	<div class="row" style="padding-top: 10px;padding-bottom: 10px;">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div  class="panel-heading">
+					<strong><span class="glyphicon glyphicon-th"></span></strong>
+					DATOS FILTRO
+				</div>
+				<div class="panel-body" id='consulta'>
+					<label>Establecimiento</label>
+					<select class="form-control" id="formalocales">
+					</select>
+					<br/>
+					<label>Fecha</label>
+					<input id="lafecha" class="form-control" readonly />
 					<input type='hidden' id='id_emp' />
-                <br/>
-                <div style="text-align: right;">
-                    <button type="button" class="btn btn-success" id='bntfiltrar' onclick="inicia();">Filtrar</button>
-                </div>
-                </div>
-                </div>
-            </div>	
-                  
-</div>
+					<br/>
+					<div style="text-align: right;">
+						<button type="button" class="btn btn-success" id='bntfiltrar' onclick="inicia();">Filtrar</button>
+					</div>
+				</div>
+				<div id='otraConsulta' style='display:none;text-align:center;'>
+					<button type="button" class="btn btn-success" id='bntfiltrar' onclick="nuevaConsulta();">Envia Nueva Consulta</button>
+				</div>
+			</div>
+		</div>	
+	</div>
 
 
 
@@ -226,7 +227,7 @@ $(window).ready(function(){
  
 function metegraficos(datos1, datos3, datos2){
 new Morris.Line({
- 
+  // ID of the element in which to draw the chart.
   element: 'chartventas',
  
   data: datos1,
@@ -260,8 +261,14 @@ new Morris.Line({
 
 document.getElementById("bntfiltrar").innerHTML="Filtrar";
 document.getElementById("bntfiltrar").className="btn btn-success";
+$('#consulta').css('display','none');
+$('#otraConsulta').css('display','block');
 }        
-         
+    function nuevaConsulta(){
+		window.location ='';
+		$('#consulta').css('display','block');
+		$('#otraConsulta').css('display','none');
+	}
 function inicia(){
 
 document.getElementById("contenedordealertas").style.display='block';
@@ -308,6 +315,10 @@ xmlhttp.send(null);
     
 }
 
+cargate();
+function cargate(){
+    
+}
 
 function datosiniciales(){
     
