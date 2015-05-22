@@ -80,7 +80,7 @@ font-size: 35px;
 				<div class="panel-body" id='consulta'>
 					<label>Establecimiento</label>
 					<select class="form-control" id="formalocales">
-					<option>Seleccione...</option>
+					<option value='0'>Seleccione...</option>
 					</select>
 					<br/>
 					<label>Fecha</label>
@@ -106,7 +106,7 @@ font-size: 35px;
                     <i class="fa fa-shopping-cart"></i>
                 </span>
                 <div style="text-align:right;">
-                    <p class="h4"><small>Ventas Mes US$:&nbsp;&nbsp;&nbsp;</small> <span id="campoventas">10,263</span></p>
+                    <p class="h4"><small>Venta Acumulada US$:&nbsp;&nbsp;&nbsp;</small> <span id="campoventas">10,263</span></p>
 					<p class="h4"><small>Ventas Dia US$:&nbsp;&nbsp;&nbsp;</small> <span id="campoventasDia">10,263</span></p>
                 </div>
             </div>
@@ -300,51 +300,56 @@ $('#datosLocalSeleccionado').html(detalleLocal);
 		$('#consulta').css('display','block');
 		$('#otraConsulta').css('display','none');
 	}
-function inicia(){
+	function inicia(){
+	var local= $('#formalocales').val();
+	//alert(local);
+		if(local == 0){
+			$('#formalocales').effect('shake');
+		}else{
 
-document.getElementById("contenedordealertas").style.display='block';
-document.getElementById("contenedordedatos").style.display='none';
-document.getElementById("mensaje").innerHTML="Cargando...espere por favor.<br><img src='images/loader.gif' width='30px'/>";
-document.getElementById("bntfiltrar").innerHTML="<img src='images/loader.gif' width='20px'/>";
-document.getElementById("bntfiltrar").className="btn btn-default";
-
-
-var sel = document.getElementById("formalocales");
-var local= $('#formalocales').val();
-var emp = $('#id_emp').val();
-console.log(local);
-
-var xmlhttp=false;
-if (!xmlhttp && typeof XMLHttpRequest!='undefined') { try {xmlhttp = new XMLHttpRequest(); } catch (e) { xmlhttp=false;}}
-if (!xmlhttp && window.createRequest) {	try { xmlhttp = window.createRequest();} catch (e) { xmlhttp=false;}}
-xmlhttp.open("GET","https://www.practisis.net/mobileapi.php?&date="+document.getElementById("lafecha").value+"&local="+local+"&emp="+emp,true);
-xmlhttp.onreadystatechange=function() {
-if (xmlhttp.readyState==4){
-	if(xmlhttp.status==200){	
-
-var respuesta=xmlhttp.responseText;
-var datos= respuesta.split("$");
-var primerosdatos=datos[0].split("|");
-document.getElementById("campoventas").innerHTML=primerosdatos[0];
-document.getElementById("campoticket").innerHTML=primerosdatos[2];
-document.getElementById("campotransacciones").innerHTML=primerosdatos[1];
-
-document.getElementById("campotransaccionesDia").innerHTML=primerosdatos[5];
+			document.getElementById("contenedordealertas").style.display='block';
+			document.getElementById("contenedordedatos").style.display='none';
+			document.getElementById("mensaje").innerHTML="Cargando...espere por favor.<br><img src='images/loader.gif' width='30px'/>";
+			document.getElementById("bntfiltrar").innerHTML="<img src='images/loader.gif' width='20px'/>";
+			document.getElementById("bntfiltrar").className="btn btn-default";
 
 
-document.getElementById("campoventasDia").innerHTML=primerosdatos[3];
-document.getElementById("campoticketHoy").innerHTML=primerosdatos[4];
-document.getElementById("contenedordealertas").style.display='none';
-document.getElementById("contenedordedatos").style.display='block';
-var jsonaobjt=JSON.parse(datos[1]);
-var jsonaobjt3=JSON.parse(datos[2]);
-var jsonaobjt2=JSON.parse(datos[3]);
-metegraficos(jsonaobjt, jsonaobjt3,jsonaobjt2);
+			var sel = document.getElementById("formalocales");
 
-}}} 
-xmlhttp.send(null);
-    
-}
+			var emp = $('#id_emp').val();
+			console.log(local);
+
+			var xmlhttp=false;
+			if (!xmlhttp && typeof XMLHttpRequest!='undefined') { try {xmlhttp = new XMLHttpRequest(); } catch (e) { xmlhttp=false;}}
+			if (!xmlhttp && window.createRequest) {	try { xmlhttp = window.createRequest();} catch (e) { xmlhttp=false;}}
+			xmlhttp.open("GET","https://www.practisis.net/mobileapi.php?&date="+document.getElementById("lafecha").value+"&local="+local+"&emp="+emp,true);
+			xmlhttp.onreadystatechange=function() {
+			if (xmlhttp.readyState==4){
+				if(xmlhttp.status==200){	
+
+			var respuesta=xmlhttp.responseText;
+			var datos= respuesta.split("$");
+			var primerosdatos=datos[0].split("|");
+			document.getElementById("campoventas").innerHTML=primerosdatos[0];
+			document.getElementById("campoticket").innerHTML=primerosdatos[2];
+			document.getElementById("campotransacciones").innerHTML=primerosdatos[1];
+
+			document.getElementById("campotransaccionesDia").innerHTML=primerosdatos[5];
+
+
+			document.getElementById("campoventasDia").innerHTML=primerosdatos[3];
+			document.getElementById("campoticketHoy").innerHTML=primerosdatos[4];
+			document.getElementById("contenedordealertas").style.display='none';
+			document.getElementById("contenedordedatos").style.display='block';
+			var jsonaobjt=JSON.parse(datos[1]);
+			var jsonaobjt3=JSON.parse(datos[2]);
+			var jsonaobjt2=JSON.parse(datos[3]);
+			metegraficos(jsonaobjt, jsonaobjt3,jsonaobjt2);
+
+			}}} 
+			xmlhttp.send(null);
+		}
+	}
 
 cargate();
 function cargate(){
