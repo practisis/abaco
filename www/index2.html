@@ -30,6 +30,19 @@ vertical-align: middle;
 text-align: center; 
 font-size: 35px;
  }   
+ #formalocales{
+	-moz-appearance: none;
+    background: #042446 url("arrow.png") no-repeat scroll 100% center;
+    border: 0 none !important;
+    color: #fff;
+    font-size: 18px;
+    height: 40px;
+    padding: 10px;
+    text-indent: 0.01px;
+    text-overflow: "";
+    text-transform: uppercase;
+    width: 100%;
+ }
 </style>
 </head>
 <body onload="datosiniciales();">
@@ -44,22 +57,30 @@ font-size: 35px;
 			<div style='float:left;'>
 				<span id='welcome'></span>  
 			</div>
-			<div style='float:right;'>
+			<div style='float:right;background-color:#286090;padding:5px;color:#fff;border-radius:5px;'>
 				<i class="fa fa-sign-out" onclick='salir()'>LogOut</i>
 			</div>
+			<div style='width:20px;padding:5px;float:right;'></div>
+			<div id='otraConsulta' style='display:none;text-align:center;float:right;'>
+				<div style='background-color:#FFB61C;color:#fff;padding:5px;width:160px;margin:0 auto;border-radius:5px' onclick="nuevaConsulta();">
+					Envia Nueva Consulta
+				</div>
+			</div>
+			
 		</div>
 		
 	</div>
 	<div class="row" style="padding-top: 10px;padding-bottom: 10px;">
 		<div class="col-md-12">
 			<div class="panel panel-default">
-				<div  class="panel-heading">
+				<div  class="panel-heading"  id='datosLocalSeleccionado'>
 					<strong><span class="glyphicon glyphicon-th"></span></strong>
-					DATOS FILTRO
+					<div >DATOS FILTRO</div>
 				</div>
 				<div class="panel-body" id='consulta'>
 					<label>Establecimiento</label>
 					<select class="form-control" id="formalocales">
+					<option>Seleccione...</option>
 					</select>
 					<br/>
 					<label>Fecha</label>
@@ -69,9 +90,6 @@ font-size: 35px;
 					<div style="text-align: right;">
 						<button type="button" class="btn btn-success" id='bntfiltrar' onclick="inicia();">Filtrar</button>
 					</div>
-				</div>
-				<div id='otraConsulta' style='display:none;text-align:center;'>
-					<button type="button" class="btn btn-success" id='bntfiltrar' onclick="nuevaConsulta();">Envia Nueva Consulta</button>
 				</div>
 			</div>
 		</div>	
@@ -179,7 +197,10 @@ $(window).ready(function(){
 		showOtherMonths: true,
 		dateFormat: 'yy-mm-dd',
 		dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
-		});
+	});
+	//$( "#formalocales" ).change(function() {
+		
+	//});
 	
 
 	document.getElementById("chartdias").innerHTML="";
@@ -263,6 +284,16 @@ document.getElementById("bntfiltrar").innerHTML="Filtrar";
 document.getElementById("bntfiltrar").className="btn btn-success";
 $('#consulta').css('display','none');
 $('#otraConsulta').css('display','block');
+var valor = $("#formalocales option:selected").html();
+var resLocal = valor.replace('_',' ');
+
+var lafecha = $('#lafecha').val();
+var detalleLocal =resLocal+'&nbsp;&nbsp;&nbsp;&nbsp;        fecha:'+lafecha;
+$('#datosLocalSeleccionado').css('text-transform','uppercase');
+$('#datosLocalSeleccionado').css('font-size','18px');
+$('#datosLocalSeleccionado').css('color','blue');
+$('#datosLocalSeleccionado').css('font-weight','bolder');
+$('#datosLocalSeleccionado').html(detalleLocal);
 }        
     function nuevaConsulta(){
 		window.location ='';
