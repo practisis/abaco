@@ -82,7 +82,7 @@ if (xmlhttp.readyState==4){
                 location.href="index2.html?id="+quien+"&pass="+pass+"&emp="+$.trim(respuesta);
 				
             }else{
-                document.getElementById("mensaje").innerHTML="Credenciales no autorizadas.";
+                document.getElementById("mensaje").innerHTML="Credenciales no autorizadas."+respuesta;
                 document.getElementById("user").value="";
                 document.getElementById("pass").value="";
             }
