@@ -79,8 +79,8 @@ if (xmlhttp.readyState==4){
             var respuesta=xmlhttp.responseText;
             console.log($.trim(respuesta));
             if (respuesta.trim()!='error2'){
-                //location.href="index2.html?id="+quien+"&pass="+pass+"&emp="+$.trim(respuesta);
-				document.getElementById("mensaje").innerHTML="Credenciales si autorizadas."+respuesta;
+                location.href="index2.html?id="+quien+"&pass="+pass+"&emp="+$.trim(respuesta);
+				//document.getElementById("mensaje").innerHTML="Credenciales si autorizadas."+respuesta;
 				
             }else{
                 document.getElementById("mensaje").innerHTML="Credenciales no autorizadas."+respuesta;
