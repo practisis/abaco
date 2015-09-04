@@ -49,32 +49,43 @@
     <gap:plugin name="org.apache.cordova.vibration" />
 	
 	<!-- iPhone 6 / 6+ --> 
-	<icon src=" icon-60@3x.png " gap:platform="ios" width="180" height="180" /> 
-	<!-- iPhone / iPod Touch --> 
+	<icon src=" icon-60@3x.png " gap:platform="ios" width="180" height="180" />
 	<icon src="icon-60.png" gap:platform="ios" width="60" height="60" /> 
-	<icon src=" icon-60@2x.png " gap:platform="ios" width="120" height="120" /> 
-	<!-- iPad --> 
+	<icon src=" icon-60@2x.png " gap:platform="ios" width="120" height="120" />
 	<icon src="icon-76.png" gap:platform="ios" width="76" height="76" /> 
 	<icon src=" icon-76@2x.png " gap:platform="ios" width="152" height="152" /> 
-	<!-- Settings Icon --> 
 	<icon src="icon-small.png" gap:platform="ios" width="29" height="29" /> 
-	<icon src=" icon-small@2x.png " gap:platform="ios" width="58" height="58" /> 
-	<!-- Spotlight Icon --> 
+	<icon src=" icon-small@2x.png " gap:platform="ios" width="58" height="58" />
 	<icon src="icon-40.png" gap:platform="ios" width="40" height="40" /> 
 	<icon src=" icon-40@2x.png " gap:platform="ios" width="80" height="80" /> 
     
 	<!-- iPhone / iPod Touch --> 
 	<icon src="icon.png" gap:platform="ios" width="57" height="57" /> 
-	<icon src=" icon@2x.png " gap:platform="ios" width="114" height="114" /> 
-	<!-- iPad --> 
+	<icon src=" icon@2x.png " gap:platform="ios" width="114" height="114" />
 	<icon src="icon-72.png" gap:platform="ios" width="72" height="72" /> 
 	<icon src=" icon-72@2x.png " gap:platform="ios" width="144" height="144" /> 
-	<!-- iPhone Spotlight and Settings Icon --> 
 	<icon src="icon-small.png" gap:platform="ios" width="29" height="29" /> 
-	<icon src=" icon-small@2x.png " gap:platform="ios" width="58" height="58" /> 
-	<!-- iPad Spotlight and Settings Icon --> 
+	<icon src=" icon-small@2x.png " gap:platform="ios" width="58" height="58" />
 	<icon src="icon-50.png" gap:platform="ios" width="50" height="50" /> 
 	<icon src=" icon-50@2x.png " gap:platform="ios" width="100" height="100" /> 
+	<icon src=" icon-640x960@2x.png " gap:platform="ios" width="1280" height="1920" /> 
+	<icon src=" icon-640x1136@1x.png " gap:platform="ios" width="640" height="1136" /> 
+	<icon src=" icon-768x1024@1x.png " gap:platform="ios" width="768" height="1024" /> 
+	<icon src=" icon-768x1024@2x.png " gap:platform="ios" width="1536" height="2048" />
+	<icon src=" icon-1024x768@1x.png " gap:platform="ios" width="1024" height="768" />
+	<icon src=" icon-768x1024@2x.png " gap:platform="ios" width="1024" height="768" />
+	<icon src=" icon-750x1334@1x.png " gap:platform="ios" width="750" height="1334" />
+	<icon src=" icon-1242x2208@2x.png " gap:platform="ios" width="2484" height="4416" />
+	<icon src=" icon-2208x1242@2x.png " gap:platform="ios" width="4416" height="2484" />
+	<icon src=" icon-29x29@1x.png " gap:platform="ios" width="29" height="29" />
+	<icon src=" icon-29x29@2x.png " gap:platform="ios" width="58" height="58" />
+	<icon src=" icon-29x29@3x.png " gap:platform="ios" width="87" height="87" />
+	<icon src=" icon-40x40@1x.png " gap:platform="ios" width="40" height="40" />
+	<icon src=" icon-40x40@3x.png " gap:platform="ios" width="120" height="120" />
+	<icon src=" icon-60x60@2x.png " gap:platform="ios" width="120" height="120" />
+	<icon src=" icon-60x60@3x.png " gap:platform="ios" width="180" height="180" />
+	<icon src=" icon-76x76@1x.png " gap:platform="ios" width="76" height="76" />
+	<icon src=" icon-76x76@2x.png " gap:platform="ios" width="152" height="152" />
 	
 	<icon src="ldpi.png" gap:platform="android" gap:qualifier="ldpi" /> 
 	<icon src="mdpi.png" gap:platform="android" gap:qualifier="mdpi" /> 
