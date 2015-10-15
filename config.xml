@@ -48,7 +48,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
 	
-	<!-- Josue Bugs--->
+	<!-- Josue Bugs
 		<icon src="x57.png" width="57" height="57" />
 		<icon src="x57.png" gap:platform="ios" width="57" height="57" />
 	<!-- -->
