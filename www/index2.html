@@ -80,10 +80,13 @@
 								<strong><span class="glyphicon glyphicon-th"></span></strong>
 								<div >DATOS FILTRO</div>
 							</div>
+							<div class="panel-body" id='empresas' style='display:none;'>
+								
+							</div>
 							<div class="panel-body" id='consulta'>
 								<label>Establecimiento</label>
 								<select class="form-control" id="formalocales">
-								<option value='0'>Todos...</option>
+								<option value='0'>Seleccione...</option>
 								</select>
 								<br/>
 								<label>Fecha</label>
@@ -391,10 +394,17 @@
 				}).done(function(json){
 					var obj=jQuery.parseJSON(json);
 					var busqueda= obj.Search;
-					for(i=0; i<= (obj.locales.length -1); i++){
-						var id_e= obj.locales[i].id_e;
-						var emp= obj.locales[i].emp;
-						$('#formalocales').append('<option value='+id_e+'>'+emp+'</option>');
+					for(i=0; i<= (obj.empresas.length -1); i++){
+						var empresas = obj.empresas[i];
+						var id_e = empresas.id_e;
+						var emp = empresas.emp;
+						for(j=0;j<=(obj.empresas[i].locales.length -1); j++){
+							var currlocal = obj.empresas[i].locales[j];
+							var id_loc = currlocal.id_loc;
+							var local = currlocal.local;
+							$('#formalocales').append('<option value='+id_loc+' id_emp='+id_e+' id_local ='+id_loc+'>'+emp+'('+local+')</option>');
+						}
+						
 					}
 						
 				});
@@ -455,8 +465,10 @@
 					$('#otraConsulta').css('display','none');
 				}
 				function inicia(){
-				var local= $('#formalocales').val();
-				//alert(local);
+				//var local= $('#formalocales').val();
+				var emp = $('#formalocales option:selected').attr('id_emp');
+				var local = $('#formalocales option:selected').attr('id_local');
+				//alert(local +' '+ emp);
 					//if(local == 0){
 						//$('#formalocales').effect('shake');
 					//}else{
@@ -470,7 +482,7 @@
 
 						var sel = document.getElementById("formalocales");
 
-						var emp = $('#id_emp').val();
+						//var emp = $('#id_emp').val();
 						console.log(local);
 
 						var xmlhttp=false;
