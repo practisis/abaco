@@ -78,6 +78,7 @@
 				if(id == '' || pass == '' ){
 				
 				}else{
+					alert('se enviara la consulta')
 					$.post("https://www.practisis.net/loginAbaco.php",{ 
 						id : id , pass : pass
 					}).done(function(data){
