@@ -82,7 +82,7 @@
 					$.post("https://www.practisis.net/loginAbaco.php",{ 
 						id : id , pass : pass
 					}).done(function(data){
-						alert(data)	
+						//alert(data)	
 						if (data.trim()!='error2'){
 							location.href="index2.html?id="+id+"&pass="+pass+"&emp="+$.trim(data);
 							
