@@ -276,11 +276,11 @@ document.getElementById("bntfiltrar").className="btn btn-success";
 		var emp = $('#id_emp').val();
 		console.log(local);
 		var date = $('#lafecha').val();
-		alert('se construira los graficos');
+		//alert('se construira los graficos');
 		$.post("https://www.practisis.net/mobileapi.php",{ 
 			date : date , local : local , emp : emp 
 		}).done(function(data){
-			alert(data)			
+			//alert(data)			
 			
 			var datos= data.split("$");
 			var primerosdatos=datos[0].split("|");
