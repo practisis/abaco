@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="net.practisis.dashboard" version="5.0" versionCode="33" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="net.practisis.dashboard" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Practisis Abaco</name>
     <description>
         Herramienta para Gerentes de Practisis
@@ -8,7 +8,11 @@
         Practisis S.A.
     </author>
     <content src="index.html" />
-    preference name="permissions" value="none" />
+    <plugin name="cordova-plugin-whitelist" source="npm" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+    <preference name="permissions" value="none" />
     <preference name='phonegap-version' value='cli-6.5.0' />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
@@ -24,7 +28,8 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="android-targetSdkVersion" value="26" />
-    <preference name="android-installLocation" value="auto" />
+<preference name="android-installLocation" value="auto" />
+
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
